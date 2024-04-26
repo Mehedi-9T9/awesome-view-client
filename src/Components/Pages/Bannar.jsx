@@ -3,7 +3,7 @@ import { FaLongArrowAltLeft } from "react-icons/fa";
 
 const Bannar = () => {
     return (
-        <div className='container mx-auto py-10 relative '>
+        <div className=' py-10 relative '>
 
             <div className="carousel w-full h-[400px] rounded-xl ">
                 <div id="slide1" style={{ backgroundImage: "url('https://i.ibb.co/D1fHkBp/vietnam-featured-755.webp')" }} className="carousel-item relative w-full bg-no-repeat bg-cover h-[400px] ">
