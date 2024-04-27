@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaLongArrowAltLeft } from "react-icons/fa";
+import { AuthContext } from '../Provider/AuthProvider';
 
 const Bannar = () => {
+    const text = useContext(AuthContext)
+    console.log(text);
     return (
         <div className=' py-10 relative '>
 

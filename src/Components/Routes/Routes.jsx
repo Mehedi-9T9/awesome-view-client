@@ -4,6 +4,7 @@ import Root from '../Pages/Root';
 import Home from '../Pages/Home';
 import AllTourismSpot from '../Pages/AllTourismSpot';
 import AddTourismSpot from '../privateRoute/AddTourismSpot';
+import Login from '../Pages/Login';
 
 const Routes = new createBrowserRouter([
     {
@@ -21,6 +22,10 @@ const Routes = new createBrowserRouter([
             {
                 path: '/addTourismSpot',
                 element: <AddTourismSpot></AddTourismSpot>
+            },
+            {
+                path: '/login',
+                element: <Login></Login>
             }
         ]
     }

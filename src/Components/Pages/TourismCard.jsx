@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { FaRegHeart } from "react-icons/fa";
 
 const TourismCard = () => {
@@ -11,12 +11,12 @@ const TourismCard = () => {
                 <div className="card-body  ">
                     <h2 className="text-2xl font-semibold font-roboto text-[#E02454]">National jamal park</h2>
                     <div className='flex justify-between'>
-                        <h2>seasonality: Winter</h2>
-                        <h2>Travel Time: 7 Days</h2>
+                        <h2 className='text-base font-poppins text-[#E02454]'>Seasonality:  <span className='text-[#002A66] font-medium'>Winter</span> </h2>
+                        <h2 className='text-base font-poppins text-[#E02454]'>Travel Time:  <span className='text-[#002A66] font-medium'>7 Days</span></h2>
                     </div>
                     <div className='flex justify-between items-center'>
-                        <h2>average_cost: 20000 tk</h2>
-                        <h2>Visitors: 200</h2>
+                        <h2 className='text-base font-poppins text-[#E02454]'>average_cost: <span className='text-[#002A66] font-medium'>20000 tk</span></h2>
+                        <h2 className='text-base font-poppins text-[#E02454]'>Visitors: <span className='text-[#002A66] font-medium'>200</span></h2>
                     </div>
                     <div className="space-x-5 text-center flex items-center">
                         <button className="btn bg-[#E02454]">Buy Now</button>

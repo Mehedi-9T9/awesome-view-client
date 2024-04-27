@@ -21,6 +21,9 @@ const Home = () => {
                     arr.map((item, idx) => <TourismCard key={idx}></TourismCard>)
                 }
             </div>
+            <div>
+                <h2 className="text-5xl font-bold font-roboto text-center py-14 text-white">All Tourism Country</h2>
+            </div>
         </div>
     );
 };
