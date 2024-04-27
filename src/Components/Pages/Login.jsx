@@ -5,7 +5,6 @@ const Login = () => {
     return (
         <div className="flex flex-col justify-center container mx-auto">
 
-
             <div className=" bg-[#fff] w-[700px] mx-auto my-10 rounded-xl border p-5 border-primary">
                 <h1 className="text-5xl font-bold text-center text-[#003A66]">Login now!</h1>
                 <div className="flex items-center flex-row-reverse ">

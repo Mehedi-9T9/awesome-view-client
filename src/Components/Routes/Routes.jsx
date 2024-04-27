@@ -5,6 +5,7 @@ import Home from '../Pages/Home';
 import AllTourismSpot from '../Pages/AllTourismSpot';
 import AddTourismSpot from '../privateRoute/AddTourismSpot';
 import Login from '../Pages/Login';
+import Rejister from '../Pages/Rejister';
 
 const Routes = new createBrowserRouter([
     {
@@ -26,6 +27,10 @@ const Routes = new createBrowserRouter([
             {
                 path: '/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/rejister',
+                element: <Rejister></Rejister>
             }
         ]
     }
