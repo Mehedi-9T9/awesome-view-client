@@ -1,7 +1,18 @@
 import { Link } from "react-router-dom";
 import { FaArrowTrendUp } from "react-icons/fa6";
+import { useForm } from "react-hook-form"
+
 
 const Login = () => {
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+    } = useForm()
+    const onSubmit = (data) => {
+        console.log(data)
+    }
     return (
         <div className="flex flex-col justify-center container mx-auto">
 
@@ -13,18 +24,18 @@ const Login = () => {
                         <img src="https://i.ibb.co/vJBN3xV/love-take.png" className="h-[400px]" alt="" />
                     </div>
                     <div>
-                        <form className="card-body ">
+                        <form onSubmit={handleSubmit(onSubmit)} className="card-body ">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text text-[#E02454] font-poppins font-medium text-lg">Email</span>
                                 </label>
-                                <input type="email" placeholder="Email" className="input input-bordered focus:outline-[#E02454] text-[#002A66] text-base font-bold font-poppins" required />
+                                <input type="email"  {...register("email", { required: true })} placeholder="Email" className="input input-bordered focus:outline-[#E02454] text-[#002A66] text-base font-bold font-poppins" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text text-[#E02454] font-poppins font-medium text-lg">Password</span>
                                 </label>
-                                <input type="password" placeholder="Password" className="input input-bordered focus:outline-[#E02454] text-[#002A66]  font-bold font-poppins" required />
+                                <input type="password" {...register("password", { required: true })} placeholder="Password" className="input input-bordered focus:outline-[#E02454] text-[#002A66]  font-bold font-poppins" />
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover text-primary">Forgot password?</a>
                                 </label>
