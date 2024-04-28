@@ -6,6 +6,7 @@ import { app } from '../../firebase.config';
 export const AuthContext = createContext(null)
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
+    const [tourismSpot, setTourismSpot] = useState([])
 
     //authintication
     const auth = getAuth(app)
@@ -39,11 +40,33 @@ const AuthProvider = ({ children }) => {
         });
     }, [])
 
+    //all Tourism Data
+    useEffect(() => {
+        fetch('http://localhost:4000/allTourismSpot')
+            .then(res => res.json())
+            .then(data => setTourismSpot(data))
+    }, [])
+
+    //for sorting
+    const ascendingCost = () => {
+        const ascending = tourismSpot.sort((a, b) => parseInt(a.averageCost) - parseInt(b.averageCost))
+        setTourismSpot(ascending)
+
+    }
+
+    const decendingCost = () => {
+        const decending = tourismSpot.sort((a, b) => parseInt(b.averageCost) - parseInt(a.averageCost))
+        setTourismSpot(decending)
+
+
+    }
 
 
 
 
-    const info = { user, createUser, loginUser, logOut, setUser }
+
+
+    const info = { user, createUser, loginUser, logOut, setUser, tourismSpot, ascendingCost, decendingCost }
 
 
     return (

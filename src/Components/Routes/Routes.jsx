@@ -6,6 +6,8 @@ import AllTourismSpot from '../Pages/AllTourismSpot';
 import AddTourismSpot from '../privateRoute/AddTourismSpot';
 import Login from '../Pages/Login';
 import Rejister from '../Pages/Rejister';
+import PrivateRoute from '../privateRoute/PrivateRoute';
+import UpdateTourismSpot from '../privateRoute/UpdateTourismSpot';
 
 const Routes = new createBrowserRouter([
     {
@@ -22,7 +24,7 @@ const Routes = new createBrowserRouter([
             },
             {
                 path: '/addTourismSpot',
-                element: <AddTourismSpot></AddTourismSpot>
+                element: <PrivateRoute><AddTourismSpot></AddTourismSpot></PrivateRoute>
             },
             {
                 path: '/login',
@@ -31,6 +33,10 @@ const Routes = new createBrowserRouter([
             {
                 path: '/rejister',
                 element: <Rejister></Rejister>
+            },
+            {
+                path: '/update',
+                element: <PrivateRoute> <UpdateTourismSpot></UpdateTourismSpot> </PrivateRoute>
             }
         ]
     }
