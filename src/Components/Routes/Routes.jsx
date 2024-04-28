@@ -8,6 +8,7 @@ import Login from '../Pages/Login';
 import Rejister from '../Pages/Rejister';
 import PrivateRoute from '../privateRoute/PrivateRoute';
 import UpdateTourismSpot from '../privateRoute/UpdateTourismSpot';
+import MyList from '../Pages/MyList';
 
 const Routes = new createBrowserRouter([
     {
@@ -39,6 +40,10 @@ const Routes = new createBrowserRouter([
                 element: <PrivateRoute> <UpdateTourismSpot></UpdateTourismSpot> </PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:4000/updateTourismSpot/${params.id}`)
 
+            },
+            {
+                path: '/myList',
+                element: <PrivateRoute><MyList></MyList></PrivateRoute>
             }
         ]
     }

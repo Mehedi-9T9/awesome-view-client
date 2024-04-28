@@ -1,5 +1,7 @@
 import { useForm } from "react-hook-form"
+import UseAuth from "../Provider/UseAuth";
 const AddTourismSpot = () => {
+    const { user } = UseAuth()
     const {
         register,
         handleSubmit,
@@ -9,10 +11,13 @@ const AddTourismSpot = () => {
 
     const onSubmit = (data) => {
         console.log(data)
+        const currentUser = user.email
+        const updateData = { ...data, currentUser }
+        console.log(updateData);
         fetch('http://localhost:4000/addTourismSpot', {
             method: "POST",
             headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(data)
+            body: JSON.stringify(updateData)
         })
             .then(res => res.json())
             .then(data => console.log(data))

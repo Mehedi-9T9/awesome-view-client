@@ -20,11 +20,12 @@ const Navbar = () => {
     }
 
 
-    console.log(user);
+
     const links = <>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/allTourismSpot" className="ml-6">All Tourism Spot</NavLink>
         <NavLink to="/addTourismSpot" className="ml-6">Add Tourism Spot</NavLink>
+        <NavLink to="/myList" className="ml-6">My List</NavLink>
     </>
     return (
         <div className="navbar sticky top-0 z-10 bg-[#FFFFFF] text-[#003A66] px-[100px] py-4">
