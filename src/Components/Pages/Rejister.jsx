@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
 import { FaArrowTrendUp } from "react-icons/fa6";
 import { useForm } from "react-hook-form"
+import UseAuth from '../Provider/UseAuth';
 
 
 const Rejister = () => {
+    const { createUser } = UseAuth()
+    // console.log(createUser);
     const {
         register,
         handleSubmit,
@@ -11,7 +14,24 @@ const Rejister = () => {
         formState: { errors },
     } = useForm()
     const onSubmit = (data) => {
-        console.log(data.name)
+        const { email, password } = data
+        // console.log(email, password)
+
+        //create user
+        createUser(email, password)
+            .then((userCredential) => {
+                // Signed up
+                const user = userCredential.user;
+                console.log(user);
+
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorMessage);
+                // ..
+            });
     }
 
 
@@ -53,7 +73,7 @@ const Rejister = () => {
                                 <label className="label">
                                     <span className="label-text text-[#E02454] font-poppins font-medium text-lg">Photo URL</span>
                                 </label>
-                                <input type="url"  {...register("photo", { required: true })} placeholder="Photo URL" className="input input-bordered focus:outline-[#E02454] text-[#002A66] text-base font-bold font-poppins" />
+                                <input type="url"  {...register("photo",)} placeholder="Photo URL" className="input input-bordered focus:outline-[#E02454] text-[#002A66] text-base font-bold font-poppins" />
                                 {errors.photo && <span className='text-red-700 font-roboto font-semibold'>This field is required</span>}
                             </div>
                             <div className="form-control">

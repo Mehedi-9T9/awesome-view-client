@@ -6,7 +6,18 @@ import { NavLink, Link } from 'react-router-dom';
 
 
 const Navbar = () => {
-    const { user } = UseAuth
+    const { user, logOut, setUser } = UseAuth()
+    const logOutHandler = () => {
+        logOut()
+            .then(() => {
+                // Sign-out successful.
+                alert("log out successful")
+                setUser(null)
+            }).catch((error) => {
+                // An error happened.
+                console.log(error);
+            });
+    }
 
 
     console.log(user);
@@ -49,7 +60,7 @@ const Navbar = () => {
                             </a>
                         </li>
                         <li><a>Settings</a></li>
-                        <li><a>Logout</a></li>
+                        <li onClick={logOutHandler}><a>Logout</a></li>
                     </ul>
                 </div>
             }

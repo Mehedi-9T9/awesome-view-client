@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import { FaArrowTrendUp } from "react-icons/fa6";
 import { useForm } from "react-hook-form"
+import UseAuth from "../Provider/UseAuth";
 
 
 const Login = () => {
+    const { loginUser } = UseAuth()
     const {
         register,
         handleSubmit,
@@ -11,7 +13,13 @@ const Login = () => {
         formState: { errors },
     } = useForm()
     const onSubmit = (data) => {
-        console.log(data)
+        const { email, password } = data
+        console.log(email, password)
+        loginUser(email, password)
+            .then(result => {
+                console.log(result.user);
+            })
+            .catch(error => console.log(error.message))
     }
     return (
         <div className="flex flex-col justify-center container mx-auto">
