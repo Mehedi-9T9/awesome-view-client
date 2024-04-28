@@ -1,9 +1,10 @@
 
 import { FaRegHeart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const TourismCard = ({ spot }) => {
     const { tourismSpotName, tourismCountryName, totalVisitors, location, averageCost, photo
-        , seasonality, shortDescription, travelTime } = spot
+        , seasonality, shortDescription, travelTime, _id } = spot
     return (
         <div>
             <div className="card w-96 bg-[#FFF] shadow-xl">
@@ -21,7 +22,7 @@ const TourismCard = ({ spot }) => {
                         <h2 className='text-base font-poppins text-[#E02454]'>Visitors: <span className='text-[#002A66] font-medium'>{totalVisitors}</span></h2>
                     </div>
                     <div className="space-x-5 text-center flex items-center">
-                        <button className="btn bg-[#E02454]">Update </button>
+                        <Link to={`/updateTourismSpot/${_id}`} ><button className="btn bg-[#E02454]">Update </button></Link>
                         <button className="btn px-5 text-[#E02454]">
                             <FaRegHeart className='font-bold text-2xl' />
                         </button>

@@ -35,8 +35,10 @@ const Routes = new createBrowserRouter([
                 element: <Rejister></Rejister>
             },
             {
-                path: '/update',
-                element: <PrivateRoute> <UpdateTourismSpot></UpdateTourismSpot> </PrivateRoute>
+                path: '/updateTourismSpot/:id',
+                element: <PrivateRoute> <UpdateTourismSpot></UpdateTourismSpot> </PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:4000/updateTourismSpot/${params.id}`)
+
             }
         ]
     }
