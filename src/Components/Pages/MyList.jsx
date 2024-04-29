@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import UseAuth from '../Provider/UseAuth';
 import MyListCard from './MyListCard';
 
 const MyList = () => {
     const { user } = UseAuth()
+    const [toggles, setToggles] = useState(true)
     const [myTourismSpots, setMyTourismSpots] = useState()
-    console.log(user);
-    const email = user.email
+    const refetch = () => {
+        setToggles(!toggles)
+
+    }
+    const email = user.email;
 
     useEffect(() => {
         fetch(`http://localhost:4000/myList/${email}`)
@@ -14,7 +18,7 @@ const MyList = () => {
             .then(data => {
                 setMyTourismSpots(data)
             })
-    }, [])
+    }, [toggles])
 
     return (
         <div className='container mx-auto my-20'>
@@ -32,7 +36,7 @@ const MyList = () => {
                 </div>
                 <div>
                     {
-                        myTourismSpots?.map(spot => <MyListCard key={spot._id} spot={spot}></MyListCard>)
+                        myTourismSpots?.map(spot => <MyListCard key={spot._id} spot={spot} refetch={refetch}></MyListCard>)
                     }
                 </div>
             </div>

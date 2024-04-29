@@ -5,7 +5,7 @@ import { SiAmazonsimpleemailservice } from "react-icons/si";
 import { MdDelete } from "react-icons/md";
 
 
-const MyListCard = ({ spot }) => {
+const MyListCard = ({ spot, refetch }) => {
     const { tourismSpotName, tourismCountryName, totalVisitors, location, averageCost, photo
         , seasonality, _id, userName, currentUser } = spot
     const deleteHandle = (id) => {
@@ -15,7 +15,10 @@ const MyListCard = ({ spot }) => {
 
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data)
+                refetch()
+            })
     }
     return (
 

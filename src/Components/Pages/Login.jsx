@@ -2,10 +2,13 @@ import { Link } from "react-router-dom";
 import { FaArrowTrendUp } from "react-icons/fa6";
 import { useForm } from "react-hook-form"
 import UseAuth from "../Provider/UseAuth";
+import { FaGoogle, FaGithub } from "react-icons/fa";
+import Swal from 'sweetalert2'
+// import {  } from "react-icons/fa";
 
 
 const Login = () => {
-    const { loginUser } = UseAuth()
+    const { loginUser, googleHandle, githubHandle } = UseAuth()
     const {
         register,
         handleSubmit,
@@ -15,11 +18,46 @@ const Login = () => {
     const onSubmit = (data) => {
         const { email, password } = data
         console.log(email, password)
+        loginHandle(email, password)
+
+    }
+
+    const loginHandle = (email, password) => {
+
         loginUser(email, password)
+            .then(result => {
+                alertHandle()
+                console.log(result.user);
+
+            })
+            .catch(error => console.log(error.message))
+
+    }
+
+    const handleGoogle = () => {
+        googleHandle()
+            .then(result => {
+                console.log(result.user);
+                const user = result.user
+
+
+
+            })
+            .catch(error => console.log(error.message))
+    }
+    const handleGithub = () => {
+        githubHandle()
             .then(result => {
                 console.log(result.user);
             })
             .catch(error => console.log(error.message))
+    }
+    const alertHandle = () => {
+        Swal.fire({
+            title: "Login Successfull!",
+            text: "You clicked the button!",
+            icon: "success"
+        });
     }
     return (
         <div className="flex flex-col justify-center container mx-auto">
@@ -52,12 +90,17 @@ const Login = () => {
                                 <button className="btn bg-[#E02454] text-white font-roboto ">Login</button>
                             </div>
                         </form>
-                        <div className="flex items-center gap-x-2 ml-9 -mt-7 text-lg">
+                        <div className="ml-8 -mt-5 ">
+                            <button onClick={handleGoogle} className="btn bg-[#E02454] w-[45%] text-yellow-300 text-2xl"><FaGoogle /></button>
+                            <button onClick={handleGithub} className="btn bg-[#E02454] w-[45%]  text-white text-2xl"> <FaGithub /></button>
+                        </div>
+                        <div className="flex items-center gap-x-2 ml-9  text-lg">
                             <p className="font-poppins text-[#002A66]">New User  </p>
                             <Link to="/rejister" className="font-bold text-primary font-roboto">Rejister </Link>
                             <FaArrowTrendUp className="text-[#E02454] font-bold text-xl" />
 
                         </div>
+                        <button onClick={alertHandle}>alert</button>
 
                     </div>
                 </div>
