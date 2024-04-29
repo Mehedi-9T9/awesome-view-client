@@ -3,6 +3,8 @@ import Bannar from "./Bannar";
 import CountryCard from "./CountryCard";
 import TourismCard from "./TourismCard";
 import { FaCheckCircle } from "react-icons/fa";
+
+
 const arr = [1, 2, 3]
 
 

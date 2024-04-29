@@ -28,7 +28,7 @@ const Navbar = () => {
         <NavLink to="/myList" className="ml-6">My List</NavLink>
     </>
     return (
-        <div className="navbar sticky top-0 z-10 bg-[#FFFFFF] text-[#003A66] px-[100px] py-4">
+        <div className="navbar sticky top-0 z-10 bg-[#FFFFFF] text-[#003A66] md:px-[100px] py-4">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -38,7 +38,7 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-2xl text-[#003A66] font-bold font-roboto">Awesome<span className='text-[#E02454]'>View</span></a>
+                <a className="btn btn-ghost text-xl md:text-3xl text-[#003A66] font-bold font-roboto">Awesome<span className='text-[#E02454]'>View</span></a>
             </div>
             <div className="navbar-start hidden lg:flex -ml-[200px] ">
                 <ul className="menu menu-horizontal px-1 text-[#003A66] text-lg font-semibold font-roboto">

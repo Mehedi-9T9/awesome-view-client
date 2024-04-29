@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { AuthContext } from '../Provider/AuthProvider';
 
+
 const Bannar = () => {
     const text = useContext(AuthContext)
     console.log(text);
@@ -11,6 +12,7 @@ const Bannar = () => {
             <div className="carousel w-full h-[400px] rounded-xl ">
                 <div id="slide1" style={{ backgroundImage: "url('https://i.ibb.co/D1fHkBp/vietnam-featured-755.webp')" }} className="carousel-item relative w-full bg-no-repeat bg-cover h-[400px] ">
                     {/* <img src="https://daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg" className="w-full" /> */}
+
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                         <a href="#slide3" className="btn btn-circle">❮</a>
                         <a href="#slide2" className="btn btn-circle">❯</a>
