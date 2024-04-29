@@ -1,10 +1,15 @@
 import React, { useContext } from 'react';
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { AuthContext } from '../Provider/AuthProvider';
+import { useTypewriter, Cursor } from 'react-simple-typewriter'
 
 
 const Bannar = () => {
-    const text = useContext(AuthContext)
+    // const text = useContext(AuthContext)
+    const [text] = useTypewriter({
+        words: ['A Guide To Your Vietnamese Adventure'],
+        loop: {},
+    })
     console.log(text);
     return (
         <div className=' py-10 relative '>
@@ -12,6 +17,11 @@ const Bannar = () => {
             <div className="carousel w-full h-[400px] rounded-xl ">
                 <div id="slide1" style={{ backgroundImage: "url('https://i.ibb.co/D1fHkBp/vietnam-featured-755.webp')" }} className="carousel-item relative w-full bg-no-repeat bg-cover h-[400px] ">
                     {/* <img src="https://daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg" className="w-full" /> */}
+                    <div className='mx-auto my-auto'>
+                        <h3 className='text-xl md:text-4xl text-black font-roboto'>The Best Things To Do In Hanoi: <br /> <span> {text}</span> <Cursor></Cursor> </h3>
+
+                        <p className='font-poppins font-medium text-[#fff] mt-5'>From cruising along the surreal Halong Bay to climbing the mountain to see Perfume Pagoda, <br /> here are some of the best things to do in Hanoi.</p>
+                    </div>
 
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                         <a href="#slide3" className="btn btn-circle">❮</a>
