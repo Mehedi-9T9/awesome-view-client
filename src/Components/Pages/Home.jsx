@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
 import UseAuth from "../Provider/UseAuth";
 import Bannar from "./Bannar";
 import CountryCard from "./CountryCard";
 import TourismCard from "./TourismCard";
 import { FaCheckCircle } from "react-icons/fa";
+import { useEffect, useState } from 'react';
 
 
 const arr = [1, 2, 3]
@@ -14,25 +16,37 @@ const Home = () => {
     const sliceSpot = tourismSpot.slice(0, 6)
     console.log(sliceSpot);
 
+    const [addCountry, setAddCountry] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:4000/addTourismCountry')
+            .then(res => res.json())
+            .then(data => {
+                setAddCountry(data)
+
+            })
+    }, [])
+
 
     return (
         <div className="container mx-auto">
             <Bannar></Bannar>
             <div className="md:flex items-center text-center">
                 <h2 className="text-3xl md:text-5xl font-bold font-roboto text-center py-14 text-white md:w-[80%]">All Tourism Spot</h2>
-                <button className=" btn bg-[#E02454] text-xl font-roboto text-white font-semibold md:w-[20%]">More Tourism Spot</button>
+                <Link to='/allTourismSpot'><button className=" btn bg-[#E02454] text-xl font-roboto text-white font-semibold  ">More Tourism Spot</button></Link>
             </div>
             <div className="ml-5 md:ml-0 mt-10 md:grid grid-cols-3 gap-5">
                 {
                     sliceSpot.map(spot => <TourismCard key={spot._id} spot={spot}></TourismCard>)
                 }
             </div>
-            <div>
+            <div className="md:flex items-center justify-around text-center">
                 <h2 className="text-5xl font-bold font-roboto text-center py-14 text-white">All Tourism Country</h2>
+                <Link to="/addTourismCountry"><button className=" btn bg-[#E02454] text-xl font-roboto text-white font-semibold md:mb-0 mb-5  ">Add Tourism Country</button></Link>
+
             </div>
-            <div className="md:flex gap-8 mb-10">
+            <div className="md:grid grid-cols-3 gap-6 mb-10">
                 {
-                    arr.map((item, idx) => <CountryCard key={idx}></CountryCard>)
+                    addCountry.map((country, idx) => <CountryCard key={idx} country={country}></CountryCard>)
                 }
 
 

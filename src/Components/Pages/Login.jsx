@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 import { FaArrowTrendUp } from "react-icons/fa6";
 import { useForm } from "react-hook-form"
 import UseAuth from "../Provider/UseAuth";
@@ -10,12 +10,22 @@ import Swal from 'sweetalert2'
 const Login = () => {
     const { loginUser, googleHandle, githubHandle } = UseAuth()
     const { register, handleSubmit, watch, formState: { errors }, } = useForm()
+
+    // current navigate system
+    const location = useLocation()
+
+    const from = location?.state || '/'
+
     const onSubmit = (data) => {
         const { email, password } = data
-        // console.log(email, password)
+
         loginUser(email, password)
             .then(result => {
                 alertHandle()
+                if (result.user) {
+                    // navigate(from)
+                    <Navigate to={from}></Navigate>
+                }
 
             })
             .catch(error => console.log(error.message))
@@ -25,25 +35,33 @@ const Login = () => {
 
 
     }
-    //google login
     const handleGoogle = () => {
-
         googleHandle()
             .then(result => {
                 console.log(result.user);
                 alertHandle()
+                if (result.user) {
+                    // navigate(from)
+                    <Navigate to={from}></Navigate>
+                }
             })
             .catch(error => console.log(error.message))
 
     }
-    //github login
     const handleGithub = () => {
         githubHandle()
             .then(result => {
                 alertHandle()
+                if (result.user) {
+                    // navigate(from)
+                    <Navigate to={from}></Navigate>
+                }
             })
             .catch(error => console.log(error.message))
+
     }
+
+
 
 
 

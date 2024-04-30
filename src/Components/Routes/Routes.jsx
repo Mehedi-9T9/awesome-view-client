@@ -11,6 +11,7 @@ import UpdateTourismSpot from '../privateRoute/UpdateTourismSpot';
 import MyList from '../Pages/MyList';
 import DetailsPage from '../privateRoute/DetailsPage';
 import ErrorPage from '../Pages/ErrorPage';
+import AddTourismCountry from '../Pages/AddTourismCountry';
 
 const Routes = new createBrowserRouter([
     {
@@ -52,6 +53,10 @@ const Routes = new createBrowserRouter([
                 path: '/tourismSpot/:id',
                 element: <PrivateRoute> <DetailsPage></DetailsPage> </PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:4000/tourismSpot/${params.id}`)
+            },
+            {
+                path: '/addTourismCountry',
+                element: <AddTourismCountry></AddTourismCountry>
             }
         ]
     }

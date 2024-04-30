@@ -1,13 +1,15 @@
-import React from 'react';
+import { count } from "firebase/firestore";
 
-const CountryCard = () => {
+const CountryCard = ({ country }) => {
+    const { countryName, countryPhoto, countryDescription } = country
+
     return (
 
         <div className="card card-compact  bg-base-100 shadow-xl border-2 mb-10">
-            <figure><img src="https://i.ibb.co/MDj9bmv/download-7.jpg" className='w-full h-[200px]' alt="Shoes" /></figure>
+            <figure><img src={countryPhoto} className='w-full h-[200px]' alt="Shoes" /></figure>
             <div className="card-body">
-                <h2 className="card-title">Bangladesh</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur nesciunt nam eveniet praesentium delectus! Repellat aperiam magnam minus qui maxime.</p>
+                <h2 className="card-title">{countryName}</h2>
+                <p>{countryDescription}</p>
 
             </div>
         </div>

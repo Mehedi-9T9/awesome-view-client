@@ -8,6 +8,7 @@ import { Tooltip } from 'react-tooltip'
 
 const Navbar = () => {
     const { user, logOut, setUser } = UseAuth()
+    console.log(user);
 
     const logOutHandler = () => {
         logOut()
@@ -65,7 +66,7 @@ const Navbar = () => {
                     !user ? <Link to="/login" className='btn bg-[#E02454] text-[#FFF] text-lg'>Login</Link> : <div className="dropdown  dropdown-end ml-5 ">
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar bg-[#E02454]">
                             <div className="w-10 rounded-full">
-                                <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                <img alt="Tailwind CSS Navbar component" src={user?.photoURL} />
                             </div>
                         </div>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
