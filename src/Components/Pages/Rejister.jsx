@@ -6,7 +6,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const Rejister = () => {
-    const { createUser, updateUser } = UseAuth()
+    const { createUser, updateUser, user } = UseAuth()
+    console.log(user);
     const notify = () => toast("Rejister Successfull!");
 
 
@@ -32,8 +33,14 @@ const Rejister = () => {
         createUser(email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                notify()
                 console.log(user);
+                notify()
+                updateUser(user, name, photo)
+                    .then(() => {
+
+                    }).catch(error => {
+                        console.log(error);
+                    })
 
 
                 // ...
@@ -45,16 +52,6 @@ const Rejister = () => {
                 // ..
             });
 
-
-
-
-
-
-
-
-
-
-
     }
 
 
@@ -62,15 +59,13 @@ const Rejister = () => {
 
 
 
-
     return (
-        <div className="flex flex-col justify-center container mx-auto">
+        <div className="md:flex flex-col justify-center container mx-auto">
 
-            <div className=" bg-[#fff] w-[700px] mx-auto my-10 rounded-xl border p-5 border-primary">
+            <div className=" bg-[#fff] md:w-[700px] mx-auto my-10 rounded-xl border p-5 border-primary">
                 <h1 className="text-5xl font-bold text-center text-[#003A66]">Rejster now!</h1>
-                <div className="flex items-center flex-row-reverse ">
+                <div className="md:flex items-center flex-row-reverse ">
                     <div>
-
                         <img src="https://i.ibb.co/ChK2LZR/undraw-Sign-up-n6im.png" className="h-[400px]" alt="" />
                     </div>
                     <div>
@@ -79,28 +74,28 @@ const Rejister = () => {
                                 <label className="label">
                                     <span className="label-text text-[#E02454] font-poppins font-medium text-lg">Name</span>
                                 </label>
-                                <input type="text" placeholder="Name" name='name' className="input input-bordered focus:outline-[#E02454] text-[#002A66] text-base font-bold font-poppins" />
+                                <input type="text" placeholder="Name" name='name' className="input input-bordered focus:outline-[#E02454] text-[#002A66] text-base font-bold font-poppins" required />
 
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text text-[#E02454] font-poppins font-medium text-lg">Photo URL</span>
                                 </label>
-                                <input type="url" name='photo' placeholder="Photo URL" className="input input-bordered focus:outline-[#E02454] text-[#002A66] text-base font-bold font-poppins" />
+                                <input type="url" name='photo' placeholder="Photo URL" className="input input-bordered focus:outline-[#E02454] text-[#002A66] text-base font-bold font-poppins" required />
 
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text text-[#E02454] font-poppins font-medium text-lg">Email</span>
                                 </label>
-                                <input type="email" name='email' placeholder="Email" className="input input-bordered focus:outline-[#E02454] text-[#002A66] text-base font-bold font-poppins" />
+                                <input type="email" name='email' placeholder="Email" className="input input-bordered focus:outline-[#E02454] text-[#002A66] text-base font-bold font-poppins" required />
 
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text text-[#E02454] font-poppins font-medium text-lg">Password</span>
                                 </label>
-                                <input type="password" name='password' placeholder="Password" className="input input-bordered focus:outline-[#E02454] text-[#002A66]  font-bold font-poppins" />
+                                <input type="password" name='password' placeholder="Password" className="input input-bordered focus:outline-[#E02454] text-[#002A66]  font-bold font-poppins" required />
 
 
                             </div>

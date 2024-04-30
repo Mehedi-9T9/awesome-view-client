@@ -12,16 +12,17 @@ const Home = () => {
     const { tourismSpot } = UseAuth()
     // console.log(tourismSpot);
     const sliceSpot = tourismSpot.slice(0, 6)
+    console.log(sliceSpot);
 
 
     return (
         <div className="container mx-auto">
             <Bannar></Bannar>
-            <div id="allTourismSpot" className="flex items-center">
-                <h2 className="text-5xl font-bold font-roboto text-center py-14 text-white w-[80%]">All Tourism Spot</h2>
-                <button className="btn bg-[#E02454] text-xl font-roboto text-white font-semibold">More Tourism Spot</button>
+            <div className="md:flex items-center text-center">
+                <h2 className="text-3xl md:text-5xl font-bold font-roboto text-center py-14 text-white md:w-[80%]">All Tourism Spot</h2>
+                <button className=" btn bg-[#E02454] text-xl font-roboto text-white font-semibold md:w-[20%]">More Tourism Spot</button>
             </div>
-            <div className="grid grid-cols-3 gap-5">
+            <div className="ml-5 md:ml-0 mt-10 md:grid grid-cols-3 gap-5">
                 {
                     sliceSpot.map(spot => <TourismCard key={spot._id} spot={spot}></TourismCard>)
                 }
@@ -29,7 +30,7 @@ const Home = () => {
             <div>
                 <h2 className="text-5xl font-bold font-roboto text-center py-14 text-white">All Tourism Country</h2>
             </div>
-            <div className="flex gap-8 mb-10">
+            <div className="md:flex gap-8 mb-10">
                 {
                     arr.map((item, idx) => <CountryCard key={idx}></CountryCard>)
                 }
@@ -39,7 +40,7 @@ const Home = () => {
             <div>
                 <h2 className="text-5xl font-bold text-center text-white">Client <span className="text-yellow-500">Question</span> </h2>
             </div>
-            <div className="flex gap-4 justify-center w-full my-14">
+            <div className="md:flex gap-4 justify-center w-full my-14">
                 <div>
                     <div className="collapse collapse-arrow bg-base-200 mb-3">
                         <input type="radio" name="my-accordion-2" defaultChecked />
@@ -94,8 +95,8 @@ const Home = () => {
                 </div>
 
             </div>
-            <div className="flex bg-slate-300 p-10 border-2 rounded-xl items-center mb-10">
-                <div className="w-[60%]">
+            <div className="md:flex bg-slate-300 p-10 border-2 rounded-xl items-center mb-10">
+                <div className="md:w-[60%] mb-10 md:mb-0">
                     <h2 className="text-xl font-semibold font-roboto text-[#002A66]">Contract With Me</h2>
                     <h1 className="text-5xl font-poppins font-bold text-white">Book your <span className="text-[#E02454]">Consultation</span> </h1>
                     <p className="font-poppins text-[#002A66] my-4">There cursus massa at urnaaculis estie. Sed aliquamellus vitae <br /> ultrs condmentum leo massa mollis.</p>
@@ -109,7 +110,7 @@ const Home = () => {
 
                     </div>
                 </div>
-                <div className="w-[40%]">
+                <div className="md:w-[40%]">
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text text-[#E02454] font-poppins font-medium text-lg">Name</span>

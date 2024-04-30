@@ -8,7 +8,7 @@ import { Tooltip } from 'react-tooltip'
 
 const Navbar = () => {
     const { user, logOut, setUser } = UseAuth()
-    console.log(user);
+
     const logOutHandler = () => {
         logOut()
             .then(() => {

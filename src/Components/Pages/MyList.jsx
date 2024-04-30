@@ -3,11 +3,12 @@ import UseAuth from '../Provider/UseAuth';
 import MyListCard from './MyListCard';
 
 const MyList = () => {
-    const { user } = UseAuth()
-    const [toggles, setToggles] = useState(true)
+    const { user, toggle, refetch } = UseAuth()
+    const [change, setChange] = useState(true)
     const [myTourismSpots, setMyTourismSpots] = useState()
-    const refetch = () => {
-        setToggles(!toggles)
+
+    const reload = () => {
+        setChange(!change)
 
     }
     const email = user.email;
@@ -17,8 +18,8 @@ const MyList = () => {
             .then(res => res.json())
             .then(data => {
                 setMyTourismSpots(data)
-            })
-    }, [toggles])
+            });
+    })
 
     return (
         <div className='container mx-auto my-20'>
@@ -28,15 +29,12 @@ const MyList = () => {
             </div>
             <div className='bg-white flex '>
                 <div className='border-r-2'>
-                    {
-                        myTourismSpots ? <img src=" https://i.ibb.co/fQN5dy5/undraw-Add-post-re-174w.png" className='mt-20' alt="" /> : null
-                    }
-
+                    <img src=" https://i.ibb.co/fQN5dy5/undraw-Add-post-re-174w.png" className='mt-20' alt="" />
 
                 </div>
                 <div>
                     {
-                        myTourismSpots?.map(spot => <MyListCard key={spot._id} spot={spot} refetch={refetch}></MyListCard>)
+                        myTourismSpots?.map(spot => <MyListCard key={spot._id} spot={spot} reload={reload}></MyListCard>)
                     }
                 </div>
             </div>

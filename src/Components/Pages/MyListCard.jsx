@@ -3,9 +3,10 @@ import { FaLocationDot } from "react-icons/fa6";
 import { BsPersonRaisedHand } from "react-icons/bs";
 import { SiAmazonsimpleemailservice } from "react-icons/si";
 import { MdDelete } from "react-icons/md";
+import Swal from 'sweetalert2'
 
 
-const MyListCard = ({ spot, refetch }) => {
+const MyListCard = ({ spot, reload }) => {
     const { tourismSpotName, tourismCountryName, totalVisitors, location, averageCost, photo
         , seasonality, _id, userName, currentUser } = spot
     const deleteHandle = (id) => {
@@ -14,15 +15,38 @@ const MyListCard = ({ spot, refetch }) => {
             headers: { 'content-type': 'application/json' }
 
         })
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        })
             .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                refetch()
+            .then(result => {
+
+
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
+                        icon: "success"
+                    });
+
+                }
+
+
+
+
             })
     }
+
+
     return (
 
-        <div className='flex items-center border-b-2  p-2 mx-auto '>
+        <div className='md:flex items-center border-b-2  p-2 mx-auto '>
             <div className='rounded-xl w-[150px]  '>
                 <img src={photo} className='w-[100px] h-[100px]  rounded-xl ' alt="" />
             </div>

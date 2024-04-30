@@ -1,6 +1,4 @@
-import React, { useContext } from 'react';
-import { FaLongArrowAltLeft } from "react-icons/fa";
-import { AuthContext } from '../Provider/AuthProvider';
+
 import { useTypewriter, Cursor } from 'react-simple-typewriter'
 
 
@@ -10,7 +8,7 @@ const Bannar = () => {
         words: ['A Guide To Your Vietnamese Adventure'],
         loop: {},
     })
-    console.log(text);
+
     return (
         <div className=' py-10 relative '>
 

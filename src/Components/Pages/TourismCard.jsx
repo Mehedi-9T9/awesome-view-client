@@ -7,7 +7,7 @@ const TourismCard = ({ spot }) => {
         , seasonality, shortDescription, travelTime, _id } = spot
     return (
         <div>
-            <div className="card w-96 bg-[#FFF] shadow-xl">
+            <div className="card w-96 bg-[#FFF] shadow-xl mb-10">
                 <figure className="px-10 pt-10">
                     <img src={photo} alt="Shoes" className="rounded-xl w-[300px] h-[200px]" />
                 </figure>
@@ -26,7 +26,7 @@ const TourismCard = ({ spot }) => {
                         <button className="btn px-5 text-[#E02454]">
                             <FaRegHeart className='font-bold text-2xl' />
                         </button>
-                        <button className="btn bg-[#E02454]">Show Details</button>
+                        <Link to={`/tourismSpot/${_id}`}><button className="btn bg-[#E02454]">Show Details</button></Link>
                     </div>
                 </div>
             </div>

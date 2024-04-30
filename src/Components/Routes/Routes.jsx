@@ -9,6 +9,7 @@ import Rejister from '../Pages/Rejister';
 import PrivateRoute from '../privateRoute/PrivateRoute';
 import UpdateTourismSpot from '../privateRoute/UpdateTourismSpot';
 import MyList from '../Pages/MyList';
+import DetailsPage from '../privateRoute/DetailsPage';
 
 const Routes = new createBrowserRouter([
     {
@@ -44,6 +45,11 @@ const Routes = new createBrowserRouter([
             {
                 path: '/myList',
                 element: <PrivateRoute><MyList></MyList></PrivateRoute>
+            },
+            {
+                path: '/tourismSpot/:id',
+                element: <PrivateRoute> <DetailsPage></DetailsPage> </PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:4000/tourismSpot/${params.id}`)
             }
         ]
     }

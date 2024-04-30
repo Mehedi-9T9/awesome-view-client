@@ -18,28 +18,28 @@ const AuthProvider = ({ children }) => {
     const auth = getAuth(app)
     // create user
     const createUser = (email, password) => {
-        createUserWithEmailAndPassword(auth, email, password)
+        return createUserWithEmailAndPassword(auth, email, password)
     }
     //Login user
     const loginUser = (email, password) => {
-        signInWithEmailAndPassword(auth, email, password)
+        return signInWithEmailAndPassword(auth, email, password)
     }
     //log out
     const logOut = () => {
-        signOut(auth)
+        return signOut(auth)
     }
     const googleProvider = new GoogleAuthProvider();
     const googleHandle = () => {
-        signInWithPopup(auth, googleProvider)
+        return signInWithPopup(auth, googleProvider)
     }
 
     const GithubProvider = new GithubAuthProvider();
     const githubHandle = () => {
-        signInWithPopup(auth, GithubProvider)
+        return signInWithPopup(auth, GithubProvider)
     }
 
     const updateUser = (currentUser, name, photoURL) => {
-        updateProfile(currentUser, {
+        return updateProfile(currentUser, {
             displayName: name, photoURL: photoURL
         })
 
@@ -61,7 +61,7 @@ const AuthProvider = ({ children }) => {
                 setUser(null)
             }
         });
-    }, [])
+    }, [auth])
 
     //all Tourism Data
     useEffect(() => {
@@ -89,7 +89,7 @@ const AuthProvider = ({ children }) => {
 
 
 
-    const info = { user, createUser, loginUser, logOut, setUser, tourismSpot, ascendingCost, decendingCost, refetch, googleHandle, githubHandle, updateUser }
+    const info = { user, createUser, loginUser, logOut, setUser, tourismSpot, ascendingCost, decendingCost, refetch, googleHandle, githubHandle, updateUser, toggle }
 
 
     return (

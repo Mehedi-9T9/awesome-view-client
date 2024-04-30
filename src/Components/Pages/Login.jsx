@@ -9,49 +9,46 @@ import Swal from 'sweetalert2'
 
 const Login = () => {
     const { loginUser, googleHandle, githubHandle } = UseAuth()
-    const {
-        register,
-        handleSubmit,
-        watch,
-        formState: { errors },
-    } = useForm()
+    const { register, handleSubmit, watch, formState: { errors }, } = useForm()
     const onSubmit = (data) => {
         const { email, password } = data
-        console.log(email, password)
-        loginHandle(email, password)
-
-    }
-
-    const loginHandle = (email, password) => {
-
+        // console.log(email, password)
         loginUser(email, password)
             .then(result => {
                 alertHandle()
-                console.log(result.user);
 
             })
             .catch(error => console.log(error.message))
 
-    }
 
+
+
+
+    }
+    //google login
     const handleGoogle = () => {
+
         googleHandle()
             .then(result => {
                 console.log(result.user);
-                const user = result.user
-
-
-
+                alertHandle()
             })
             .catch(error => console.log(error.message))
+
     }
+    //github login
     const handleGithub = () => {
         githubHandle()
             .then(result => {
-                console.log(result.user);
+                alertHandle()
             })
             .catch(error => console.log(error.message))
     }
+
+
+
+
+
     const alertHandle = () => {
         Swal.fire({
             title: "Login Successfull!",
@@ -60,11 +57,11 @@ const Login = () => {
         });
     }
     return (
-        <div className="flex flex-col justify-center container mx-auto">
+        <div className="md:flex flex-col justify-center container mx-auto">
 
-            <div className=" bg-[#fff] w-[700px] mx-auto my-10 rounded-xl border p-5 border-primary">
+            <div className=" bg-[#fff] md:w-[700px] mx-auto my-10 rounded-xl border p-5 border-primary">
                 <h1 className="text-5xl font-bold text-center text-[#003A66]">Login now!</h1>
-                <div className="flex items-center flex-row-reverse ">
+                <div className="md:flex items-center flex-row-reverse ">
                     <div>
 
                         <img src="https://i.ibb.co/vJBN3xV/love-take.png" className="h-[400px]" alt="" />
@@ -100,7 +97,7 @@ const Login = () => {
                             <FaArrowTrendUp className="text-[#E02454] font-bold text-xl" />
 
                         </div>
-                        <button onClick={alertHandle}>alert</button>
+
 
                     </div>
                 </div>
