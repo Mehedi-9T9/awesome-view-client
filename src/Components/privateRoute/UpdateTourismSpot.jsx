@@ -1,25 +1,23 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { useForm } from "react-hook-form"
+import Swal from 'sweetalert2'
+import UseAuth from "../Provider/UseAuth";
 
 
 
 const UpdateTourismSpot = () => {
+    const { refetch } = UseAuth()
     const tourismSpot = useLoaderData()
     console.log(tourismSpot);
     const { tourismSpotName, tourismCountryName, totalVisitors, location, averageCost, photo
         , seasonality, shortDescription, travelTime, _id, userName, userEmail } = tourismSpot
 
-    const {
-        register,
-        handleSubmit,
-        watch,
-        formState: { errors },
-    } = useForm()
+    const { register, handleSubmit, watch, formState: { errors } } = useForm()
     const onSubmit = (data) => {
-        console.log(data);
 
         updateData(data)
+
     }
     const updateData = (data) => {
         fetch(`http://localhost:4000/updateTourismSpot/${_id}`, {
@@ -30,6 +28,13 @@ const UpdateTourismSpot = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+                Swal.fire({
+                    title: "Update Successfull!",
+                    text: "You clicked the OK  button!",
+                    icon: "success"
+                });
+                refetch()
+
             })
     }
     return (
