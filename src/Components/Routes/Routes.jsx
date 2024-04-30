@@ -10,11 +10,13 @@ import PrivateRoute from '../privateRoute/PrivateRoute';
 import UpdateTourismSpot from '../privateRoute/UpdateTourismSpot';
 import MyList from '../Pages/MyList';
 import DetailsPage from '../privateRoute/DetailsPage';
+import ErrorPage from '../Pages/ErrorPage';
 
 const Routes = new createBrowserRouter([
     {
         path: '/',
         element: <Root></Root>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
