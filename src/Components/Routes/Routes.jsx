@@ -42,7 +42,7 @@ const Routes = new createBrowserRouter([
             {
                 path: '/updateTourismSpot/:id',
                 element: <PrivateRoute> <UpdateTourismSpot></UpdateTourismSpot> </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:4000/updateTourismSpot/${params.id}`)
+                loader: ({ params }) => fetch(`https://awesome-view-server.vercel.app/updateTourismSpot/${params.id}`)
 
             },
             {
@@ -52,7 +52,7 @@ const Routes = new createBrowserRouter([
             {
                 path: '/tourismSpot/:id',
                 element: <PrivateRoute> <DetailsPage></DetailsPage> </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:4000/tourismSpot/${params.id}`)
+                loader: ({ params }) => fetch(`https://awesome-view-server.vercel.app/tourismSpot/${params.id}`)
             },
             {
                 path: '/addTourismCountry',

@@ -10,7 +10,7 @@ const MyListCard = ({ spot, reload }) => {
     const { tourismSpotName, tourismCountryName, totalVisitors, location, averageCost, photo
         , seasonality, _id, userName, currentUser } = spot
     const deleteHandle = (id) => {
-        fetch(`http://localhost:4000/myList/${id}`, {
+        fetch(`https://awesome-view-server.vercel.app/myList/${id}`, {
             method: "DELETE",
             headers: { 'content-type': 'application/json' }
 

@@ -18,7 +18,7 @@ const Home = () => {
 
     const [addCountry, setAddCountry] = useState([])
     useEffect(() => {
-        fetch('http://localhost:4000/addTourismCountry')
+        fetch('https://awesome-view-server.vercel.app/addTourismCountry')
             .then(res => res.json())
             .then(data => {
                 setAddCountry(data)

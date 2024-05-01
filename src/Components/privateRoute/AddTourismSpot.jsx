@@ -14,7 +14,7 @@ const AddTourismSpot = () => {
         const currentUser = user.email
         const updateData = { ...data, currentUser }
         console.log(updateData);
-        fetch('http://localhost:4000/addTourismSpot', {
+        fetch('https://awesome-view-server.vercel.app/addTourismSpot', {
             method: "POST",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(updateData)

@@ -14,7 +14,7 @@ const MyList = () => {
     const email = user.email;
 
     useEffect(() => {
-        fetch(`http://localhost:4000/myList/${email}`)
+        fetch(`https://awesome-view-server.vercel.app/myList/${email}`)
             .then(res => res.json())
             .then(data => {
                 setMyTourismSpots(data)

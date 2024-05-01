@@ -9,7 +9,7 @@ const AddTourismCountry = () => {
         const countryDescription = form.countryDescription.value;
         const info = { countryName, countryPhoto, countryDescription }
         console.log(info);
-        fetch('http://localhost:4000/addTourismCountry', {
+        fetch('https://awesome-view-server.vercel.app/addTourismCountry', {
             method: "POST",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(info)

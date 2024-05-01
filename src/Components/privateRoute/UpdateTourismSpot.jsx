@@ -20,7 +20,7 @@ const UpdateTourismSpot = () => {
 
     }
     const updateData = (data) => {
-        fetch(`http://localhost:4000/updateTourismSpot/${_id}`, {
+        fetch(`https://awesome-view-server.vercel.app/updateTourismSpot/${_id}`, {
             method: "PUT",
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)

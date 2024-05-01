@@ -75,7 +75,7 @@ const AuthProvider = ({ children }) => {
 
     //all Tourism Data
     useEffect(() => {
-        fetch('http://localhost:4000/allTourismSpot')
+        fetch('https://awesome-view-server.vercel.app/allTourismSpot')
             .then(res => res.json())
             .then(data => setTourismSpot(data))
     }, [toggle])
