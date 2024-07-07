@@ -38,7 +38,7 @@ const Bannar = () => {
                  bg-no-repeat bg-cover h-[400px]">
                     {/* <img src="https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg" className="w-full" /> */}
                     <div className='h-[500px]'>
-                        <h3>This is slider</h3>
+                        <h3></h3>
 
                     </div>
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
